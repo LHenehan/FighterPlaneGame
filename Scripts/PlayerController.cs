@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public GameObject thrusterPrefab;
     public GameObject shieldPrefab;
 
+    
+
     private float playerSpeed;
     private float horizontalInput;
     private float vertictalInput;
@@ -94,6 +96,26 @@ public class PlayerController : MonoBehaviour
                     break;
 
             }
+        }
+        else if (whatDidIHit.tag == "Coin")
+        {
+            gameManager.AddScore(1);
+            gameManager.PlaySound(3);
+            Destroy(whatDidIHit.gameObject);
+        }
+        else if (whatDidIHit.tag == "Life")
+        {
+            if (lives < 3)
+            {
+                lives++;
+                gameManager.ChangeLivesText(lives);
+            }
+            else
+            {
+                gameManager.AddScore(1);
+            }
+            gameManager.PlaySound(4);
+            Destroy(whatDidIHit.gameObject);
         }
     }
 

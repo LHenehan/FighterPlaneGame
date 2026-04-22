@@ -13,11 +13,14 @@ public class GameManager : MonoBehaviour
     public GameObject cloudPrefab;
     public GameObject gameOverMenu;
     public GameObject powerUpPrefab;
+    public GameObject coinPrefab;
+    public GameObject lifePrefab;
     public GameObject audioPlayer;
 
     public AudioClip powerUpSound;
     public AudioClip powerDownSound;
-
+    public AudioClip coinSound;
+    public AudioClip lifeSound;
 
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
@@ -53,6 +56,8 @@ public class GameManager : MonoBehaviour
         CreateSky();
 
         StartCoroutine(SpawnPowerup());
+        StartCoroutine(SpawnCoin());
+        StartCoroutine(SpawnLife());
     }
 
     // Update is called once per frame
@@ -90,10 +95,38 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnPowerup()
     {
-        float spawnTime = Random.Range(3, 5);
+        float spawnTime = Random.Range(3f, 5f);
         yield return new WaitForSeconds(spawnTime);
         CreatePowerup();
         StartCoroutine(SpawnPowerup());
+    }
+
+    void CreateCoin()
+    {
+        //Instantiate(powerUpPrefab, new Vector3(Random.Range(-horizontalScreenLimit * .8f, horizontalScreenLimit * .8f), Random.Range(-verticalScreenLimit * .8f, verticalScreenLimit * .8f), 0f), Quaternion.identity);
+        Instantiate(coinPrefab, new Vector3(Random.Range(-horizontalScreenLimit * .8f, horizontalScreenLimit * .8f), Random.Range(-3.3f, 0.5f), 0f), Quaternion.identity);
+    }
+
+    IEnumerator SpawnCoin()
+    {
+        float spawnTime = Random.Range(3f, 5f);
+        yield return new WaitForSeconds(spawnTime);
+        CreateCoin();
+        StartCoroutine(SpawnCoin());
+    }
+
+    void CreateLife()
+    {
+        //Instantiate(powerUpPrefab, new Vector3(Random.Range(-horizontalScreenLimit * .8f, horizontalScreenLimit * .8f), Random.Range(-verticalScreenLimit * .8f, verticalScreenLimit * .8f), 0f), Quaternion.identity);
+        Instantiate(lifePrefab, new Vector3(Random.Range(-horizontalScreenLimit * .8f, horizontalScreenLimit * .8f), Random.Range(-3.3f, 0.5f), 0f), Quaternion.identity);
+    }
+
+    IEnumerator SpawnLife()
+    {
+        float spawnTime = Random.Range(3f, 5f);
+        yield return new WaitForSeconds(spawnTime);
+        CreateLife();
+        StartCoroutine(SpawnLife());
     }
 
     public void ManagePowerupText(int powerupType)
@@ -128,6 +161,14 @@ public class GameManager : MonoBehaviour
             case 2:
                 audioPlayer.GetComponent<AudioSource>().PlayOneShot(powerDownSound);
                 break;
+            case 3:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(coinSound);
+                break;
+            case 4:
+                audioPlayer.GetComponent<AudioSource>().PlayOneShot(lifeSound);
+                break;
+
+
         }
     }
 

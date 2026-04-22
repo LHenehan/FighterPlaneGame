@@ -1196,9 +1196,13 @@ MonoBehaviour:
   cloudPrefab: {fileID: 3323210352207963307, guid: 9098dd4925d73cb4d8b7a38f78308c99, type: 3}
   gameOverMenu: {fileID: 2110928390}
   powerUpPrefab: {fileID: 3323210352207963307, guid: 71eca4cceee1daf4c99bb223bbe47ce3, type: 3}
+  coinPrefab: {fileID: 2015826671063874465, guid: 3a1af032996cb1c41ad5818523799dcb, type: 3}
+  lifePrefab: {fileID: 4812335600921465618, guid: c5b2e087ed9cf5147b3dd236cec3fc63, type: 3}
   audioPlayer: {fileID: 203031605}
   powerUpSound: {fileID: 8300000, guid: 752ca85f206f14146942c3fcafbdd492, type: 3}
   powerDownSound: {fileID: 8300000, guid: 86237706879f3c44db594d2c5cb1f7b3, type: 3}
+  coinSound: {fileID: 8300000, guid: 90b3ebbc618813a44b27143d1d188ff7, type: 3}
+  lifeSound: {fileID: 8300000, guid: b403d3f2363dc8d4bb065d19a7919002, type: 3}
   livesText: {fileID: 1587898860}
   scoreText: {fileID: 572736293}
   powerUpText: {fileID: 292766895}

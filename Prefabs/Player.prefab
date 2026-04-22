@@ -54,6 +54,8 @@ MonoBehaviour:
   explosionPrefab: {fileID: 7058206391659571905, guid: 47bd2057ba400a6468c07803a91f1fa0, type: 3}
   thrusterPrefab: {fileID: 2687770937908699843}
   shieldPrefab: {fileID: 1039005060997527}
+  coinSound: {fileID: 8300000, guid: 90b3ebbc618813a44b27143d1d188ff7, type: 3}
+  lifeSound: {fileID: 8300000, guid: b403d3f2363dc8d4bb065d19a7919002, type: 3}
   lives: 0
   weaponType: 0
   shieldActive: 0
